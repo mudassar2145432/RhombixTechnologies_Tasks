@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Donation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://b2976109.smushcdn.com/2976109/wp-content/uploads/2019/04/blood_donation_transfusion_750.jpg?lossy=2&strip=1&webp=1');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 70px;
+      margin-top: 60px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d32f2f;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+      display: inline-block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+
+    #responseMsg {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+
+    .success {
+      color: #2c6e49;
+    }
+
+    .error {
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Blood Donation Form</h2>
+
+  <form id="bloodForm">
+    <label>Blood Type:</label><br>
+    <input type="text" name="blood_type" required><br>
+
+    <label>Storage Area:</label><br>
+    <input type="text" name="storage_area" required><br>
+
+    <label>Storage Date:</label><br>
+    <input type="date" name="storage_date" required><br>
+
+    <label>Depositor Name:</label><br>
+    <input type="text" name="depositor_name" required><br>
+
+    <label>Depositor Contact:</label><br>
+    <input type="text" name="depositor_contact" required><br>
+
+    <label>Patient Name:</label><br>
+    <input type="text" name="patient_name" required><br>
+
+    <label>Patient Contact:</label><br>
+    <input type="text" name="patient_contact" required><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="responseMsg"></p>
+</div>
+
+<script>
+  document.getElementById('bloodForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const responseMsg = document.getElementById("responseMsg");
+
+    const data = {
+      blood_type: form.blood_type.value,
+      storage_area: form.storage_area.value,
+      storage_date: form.storage_date.value,
+      depositor_name: form.depositor_name.value,
+      depositor_contact: form.depositor_contact.value,
+      patient_name: form.patient_name.value,
+      patient_contact: form.patient_contact.value
+    };
+
+    try {
+      const response = await fetch("https://kr4qhic428.execute-api.us-east-1.amazonaws.com/prod/AddBloodDeposit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.message) {
+        responseMsg.textContent = "Thank you for your donation!";
+        responseMsg.className = "success";
+        form.reset();
+      } else {
+        responseMsg.textContent = "Failed to submit the form. Please try again.";
+        responseMsg.className = "error";
+      }
+    } catch (error) {
+      responseMsg.textContent = "An error occurred. Please check your connection.";
+      responseMsg.className = "error";
+      console.error("Submission error:", error);
+    }
+  });
+</script>
+
+</body>
+</html> 
+
+
+
