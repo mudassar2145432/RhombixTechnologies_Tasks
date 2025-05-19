@@ -1,0 +1,254 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "hi", "hello", "hey", "good morning", "good evening", "howdy",
+          "what's up", "how are you", "hey there", "hi there"
+        ],
+        "responses": [
+          "Hello! Welcome to Blossom Flower Shop.",
+          "Hi! How can I assist you with flowers today?",
+          "Hey there! Welcome to our flower shop. How can I help you?",
+          "Good morning! How can I help you with flowers today?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": [
+          "bye", "goodbye", "see you", "take care", "catch you later", "see you later"
+        ],
+        "responses": [
+          "Goodbye! Have a great day with beautiful flowers.",
+          "Thanks for visiting. Take care and enjoy your flowers!",
+          "See you soon! Have a lovely day!",
+          "Goodbye! Don't forget, flowers always brighten your day!"
+        ]
+      },
+      {
+        "tag": "thank_you",
+        "patterns": [
+          "thank you", "thanks", "thanks a lot", "thank you very much"
+        ],
+        "responses": [
+          "You're welcome! Let me know if you need anything else.",
+          "No problem! I'm here if you need more help.",
+          "You're welcome! Feel free to ask any other questions."
+        ]
+      },
+      {
+        "tag": "order_flowers",
+        "patterns": [
+          "I want flowers", "order flowers", "buy flowers", "I need flowers",
+          "can I order a bouquet", "place an order for flowers", "order a bouquet"
+        ],
+        "responses": [
+          "Sure! What kind of flowers would you like to order?",
+          "Of course! Do you have a specific type of flowers in mind?",
+          "I’d be happy to help. What flowers would you like to purchase?"
+        ]
+      },
+      {
+        "tag": "delivery",
+        "patterns": [
+          "When will it be delivered?", "how long does delivery take?",
+          "What is the delivery time?", "when can I expect my delivery?",
+          "do you offer delivery?", "How fast do you deliver flowers?",
+          "delivery time", "Do you deliver on Sundays?"
+        ],
+        "responses": [
+          "We deliver within 24 hours, and yes, we deliver on Sundays too!",
+          "Our delivery is typically within 1-2 business days.",
+          "We offer same-day delivery if you place your order early enough.",
+          "We deliver within 24 hours, but delivery times may vary based on your location."
+        ]
+      },
+      {
+        "tag": "payment",
+        "patterns": [
+          "How can I pay for my flowers?", "what payment methods do you accept?",
+          "can I pay by credit card?", "do you accept PayPal?", "can I pay online?",
+          "how do I complete my payment?"
+        ],
+        "responses": [
+          "We accept credit card payments, PayPal, and bank transfers.",
+          "You can pay using a credit card, PayPal, or even cash on delivery.",
+          "We accept all major credit cards and PayPal for your convenience."
+        ]
+      },
+      {
+        "tag": "pricing",
+        "patterns": [
+          "How much do the flowers cost?", "What are the prices for flowers?",
+          "How much is a bouquet?", "Are your flowers expensive?",
+          "How much does a dozen roses cost?", "Do you have flowers within a budget?",
+          "What is the price of lilies?", "How much are lilies?",
+          "What is the cost of a lily bouquet?", "How much do sunflowers cost?",
+          "What is the price of roses?", "How much is a bouquet of tulips?"
+        ],
+        "responses": [
+          "Our prices vary depending on the flower type and size of the bouquet."
+        ]
+      },
+      {
+        "tag": "flower_types",
+        "patterns": [
+          "What types of flowers do you sell?", "Do you sell roses?",
+          "What flowers do you offer?", "Can I buy lilies?", "Do you have tulips?",
+          "Are sunflowers available?", "What kind of flowers do you have?"
+        ],
+        "responses": [
+          "We offer a wide variety of flowers, including roses, lilies, tulips, orchids, and sunflowers.",
+          "We specialize in a wide range of flowers including roses, lilies, daisies, and much more!",
+          "Yes, we have roses, tulips, orchids, lilies, and many other beautiful flowers."
+        ]
+      },
+      {
+        "tag": "flower_care",
+        "patterns": [
+          "How do I care for my flowers?", "How should I take care of roses?",
+          "What is the best way to keep flowers fresh?", "Do you have any tips for flower care?",
+          "How long do cut flowers last?", "What is the best way to water flowers?"
+        ],
+        "responses": [
+          "To keep flowers fresh, change the water every two days and trim the stems.",
+          "For roses, make sure to keep the stems in fresh water and avoid direct sunlight.",
+          "To ensure longevity, keep flowers in a cool place and change the water regularly."
+        ]
+      },
+      {
+        "tag": "order_tracking",
+        "patterns": [
+          "Where is my order?", "Can I track my order?",
+          "When will my flowers arrive?", "Where can I check my order status?"
+        ],
+        "responses": [
+          "Please provide your order ID, and I’ll help you track it.",
+          "Can you share your order number? I’ll check the status for you.",
+          "I can help you track your order. Just give me your order ID."
+        ]
+      },
+      {
+        "tag": "customer_support",
+        "patterns": [
+          "I need help", "Can you assist me?", "Do you have customer support?",
+          "I need assistance", "Can you help me with something?"
+        ],
+        "responses": [
+          "Sure! How can I assist you today?",
+          "I’m here to help. What do you need assistance with?",
+          "Of course! What can I help you with?"
+        ]
+      },
+      {
+        "tag": "refund",
+        "patterns": [
+          "Can I get a refund?", "I want to cancel my order",
+          "How do I get a refund?", "Can I return the flowers?", "I want my money back"
+        ],
+        "responses": [
+          "If you’re unsatisfied, please contact customer support to arrange a refund.",
+          "Refunds are processed within 7-10 business days. Please reach out to support for further assistance.",
+          "To request a refund or cancel your order, contact customer support."
+        ]
+      },
+      {
+        "tag": "discounts",
+        "patterns": [
+          "any discounts?", "special offers?",
+          "discount on flowers?", "sales?"
+        ],
+        "responses": [
+          "We have occasional sales. Keep an eye out on our site for discounts!"
+        ]
+      },
+      {
+        "tag": "store_hours",
+        "patterns": [
+          "What are your store hours?", "When are you open?",
+          "What time do you open?", "Are you open today?"
+        ],
+        "responses": [
+          "We are open Monday to Saturday from 9 AM to 6 PM.",
+          "Our store hours are 9 AM to 6 PM, Monday to Saturday.",
+          "We’re open Monday to Saturday from 9 AM to 6 PM. Closed on Sundays."
+        ]
+      },
+      {
+        "tag": "event_flowers",
+        "patterns": [
+          "Do you provide flowers for weddings?", "I need flowers for an event",
+          "Do you do flower arrangements for parties?", "I want flowers for a birthday",
+          "Can you help with corporate event decoration?"
+        ],
+        "responses": [
+          "Absolutely! We offer custom arrangements for weddings, birthdays, and corporate events.",
+          "Yes, we provide special flower arrangements for events. What type of event are you planning?",
+          "We would love to help with your event. Please share the date and type of event."
+        ]
+      },
+      {
+        "tag": "custom_bouquet",
+        "patterns": [
+          "Can I customize my bouquet?", "I want a personalized flower arrangement",
+          "Do you make custom bouquets?", "Can I choose my own flowers?", "I want to design my bouquet"
+        ],
+        "responses": [
+          "Yes, you can fully customize your bouquet! Let us know which flowers and colors you prefer.",
+          "We love making personalized bouquets. Share your preferences and we'll get started.",
+          "Custom bouquets are our specialty! What flowers would you like included?"
+        ]
+      },
+      {
+        "tag": "flower_subscription",
+        "patterns": [
+          "Do you offer flower subscriptions?", "Can I get flowers delivered every week?",
+          "How can I subscribe for weekly flowers?", "Do you have a monthly flower service?",
+          "I want flowers regularly"
+        ],
+        "responses": [
+          "Yes! We offer weekly and monthly flower subscriptions. Would you like to learn more?",
+          "Our subscription plans are flexible. You can choose how often you want fresh flowers delivered.",
+          "You can subscribe for regular flower deliveries. We have several plans available."
+        ]
+      },
+      {
+        "tag": "same_day_delivery",
+        "patterns": [
+          "Do you offer same-day delivery?", "Can I get flowers today?",
+          "Is same-day delivery available?", "I need flowers delivered right now", "how to order", "process of order", "how to place order"
+        ],
+        "responses": [
+          "Yes, we offer same-day delivery for orders placed before 2 PM. To order, contact +923117328003",
+          "You can get same-day delivery if you order early in the day. To order, contact +923117328003",
+          "Absolutely, we do same-day deliveries! Just confirm your order before 2 PM. To order, contact +923117328003"
+        ]
+      },
+      {
+        "tag": "cancel_order",
+        "patterns": [
+          "I need to cancel order", "Can I cancel my order?",
+          "I want to cancel my order", "How do I cancel order?"
+        ],
+        "responses": [
+          "Sorry to hear that. Please provide your order number, and we’ll cancel it for you. Or contact on 03117328003",
+          "You can cancel your order by contacting our support team. What’s your order ID? Or contact on 03117328003",
+          "Sure, we can cancel it. Please contact on 03117328003"
+        ]
+      },
+      {
+        "tag": "shop_info",
+        "patterns": [
+          "What is your address?", "Where is your shop located?",
+          "Can I visit your shop?", "Do you have a physical store?",
+          "How do I reach your store?", "What’s your contact number?",
+          "How can I call you?", "Give me your phone number",
+          "Do you have a phone number?", "I want to visit your shop"
+        ],
+        "responses": [
+          "We are located at 123 Blossom Street. Call us at +1-234-567-8901 for assistance or directions."
+        ]
+      }
+    ]
+  }
+  
