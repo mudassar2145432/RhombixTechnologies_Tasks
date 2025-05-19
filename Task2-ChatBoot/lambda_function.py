@@ -1,41 +1,32 @@
-import boto3
-import uuid
 import json
+import boto3
+
+s3 = boto3.client('s3')
+BUCKET_NAME = "bloom-bot-data"
+FILE_NAME = "flower_shop_intents.json"
 
 def lambda_handler(event, context):
-    # Parse the body if coming from API Gateway
-    try:
-        body = json.loads(event['body']) if isinstance(event['body'], str) else event['body']
-    except Exception as e:
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': 'Invalid JSON format'})
-        }
+    # User's question from Lex
+    query = event['inputTranscript'].lower()
 
-    # Set the DynamoDB resource and use the new table name 'BloodBankTable'
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('BloodBankTable')  # Updated table name
+    # Load the JSON from S3
+    response = s3.get_object(Bucket=BUCKET_NAME, Key=FILE_NAME)
+    faq_data = json.loads(response['Body'].read().decode('utf-8'))
 
-    try:
-        table.put_item(
-            Item={
-                'deposit_id': str(uuid.uuid4()),  # Generate a unique deposit ID
-                'blood_type': body['blood_type'],
-                'storage_area': body['storage_area'],
-                'storage_date': body['storage_date'],
-                'depositor_name': body['depositor_name'],
-                'depositor_contact': body['depositor_contact'],
-                'patient_name': body['patient_name'],
-                'patient_contact': body['patient_contact'],
-            }
-        )
-    except KeyError as e:
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': f'Missing required field: {str(e)}'})
-        }
+    # Simple matcher
+    for key, value in faq_data.items():
+        if isinstance(value, dict):
+            for flower, answer in value.items():
+                if flower in query:
+                    return {"messages": [{"contentType": "PlainText", "content": answer}]}
+        else:
+            if key in query:
+                return {"messages": [{"contentType": "PlainText", "content": value}]}
 
     return {
-        'statusCode': 200,
-        'body': json.dumps({'message': 'Blood deposit added successfully.'})
+        "messages": [{
+            "contentType": "PlainText",
+            "content": "Sorry, I didn’t understand that. Try asking about flower prices, delivery, or shop hours."
+        }]
     }
+
