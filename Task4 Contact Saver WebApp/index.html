@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Contacts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="particles-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <header class="animate__animated animate__fadeInDown">
+    <div class="header-content">
+      <h1 class="page-title">
+        <span class="title-text">TechHub Contacts Gallery</span>
+        <div class="icon-wrapper">
+          <i class="fas fa-address-card title-icon"></i>
+        </div>
+      </h1>
+      <p class="tagline">Your digital contact hub</p>
+    </div>
+  </header>
+
+  <div class="main-wrapper animate__animated animate__fadeIn">
+    <div class="container glass-card">
+      <div class="form-header">
+        <h2><i class="fas fa-user-plus"></i> Add New Contact</h2>
+        <p class="form-subtitle">Fill in the details to add a new contact</p>
+      </div>
+      <form id="contactForm">
+        <div class="input-group floating-label">
+          <input type="text" id="name" placeholder=" " required />
+          <label for="name">Full Name</label>
+          <i class="fas fa-user input-icon"></i>
+        </div>
+        <div class="input-group floating-label">
+          <input type="email" id="email" placeholder=" " required />
+          <label for="email">Email Address</label>
+          <i class="fas fa-envelope input-icon"></i>
+        </div>
+        <div class="input-group floating-label">
+          <textarea id="message" placeholder=" " required></textarea>
+          <label for="message">Employee Status</label>
+          <i class="fas fa-comment input-icon"></i>
+        </div>
+        <div class="advanced-fields" style="display: none;">
+          <div class="input-group floating-label">
+            <input type="tel" id="phone" placeholder=" " />
+            <label for="phone">Phone Number</label>
+            <i class="fas fa-phone input-icon"></i>
+          </div>
+          <div class="input-group floating-label">
+            <input type="text" id="department" placeholder=" " />
+            <label for="department">Department</label>
+            <i class="fas fa-briefcase input-icon"></i>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn neon-btn">
+          <span class="btn-text">Save Contact</span>
+          <i class="fas fa-paper-plane btn-icon"></i>
+        </button>
+      </form>
+      <div id="response" class="response-message"></div> 
+    </div>
+
+    <div class="contact-container glass-card">
+      <div class="contacts-header">
+        <div class="contacts-title-wrapper">
+          <h2><i class="fas fa-address-book"></i> Saved Contacts</h2>
+         
+        </div>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search by name or email..." />
+            <button class="sort-btn" id="sortBtn" title="Sort contacts">
+              <i class="fas fa-sort"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="contactsList" class="contacts-list">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading contacts...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
